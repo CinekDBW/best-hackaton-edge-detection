@@ -5,9 +5,9 @@ from scipy import ndimage
 from scipy.ndimage.filters import convolve
 
 path = "images/img4.jpg"
-myImage = Image.open(path)
-array = asarray(myImage)
-myImage.show()
+img = Image.open(path)
+array = asarray(img)
+img.show()
 
 def grayscale(array):
     # changing from rgba to rgb if needed (png)
@@ -130,8 +130,8 @@ array = non_max_suppression(g, theta)
 array, weak_pix, strong_pix = threshold(array, 0.05, 0.20)
 array = hysteresis(array, weak_pix, strong_pix)
 
-myImage = Image.fromarray(array)
-myImage.show()
+img = Image.fromarray(array)
+img.show()
 
 filename = path.split('/')[-1].split('.')[0]
 Image.fromarray(array).convert('RGB').save('outputs/'+filename+'.png')
